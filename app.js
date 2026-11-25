@@ -47,11 +47,11 @@
     $('#cAddr').textContent = (s.city ? s.city + ', ' : '') + (s.address || '');
     $('#cHours').textContent = s.hours || '';
     $('#cMap').href = 'https://2gis.kz/karaganda/search/' + encodeURIComponent((s.address || '').replace(/[«»]/g, '') + ' ' + (s.city || ''));
-    $('#deliveryList').innerHTML = (s.delivery || []).map(function (d) {
-      return '<div class="dl-item">' + MF.ears() + '<div><b>' + esc(d.t) + '</b><span>' + esc(d.d) + '</span></div></div>';
+    $('#deliveryList').innerHTML = (s.delivery || []).map(function (d, i) {
+      return '<div class="dl-item"><span class="dl-n">' + (i + 1) + '</span><div><b>' + esc(d.t) + '</b><span>' + esc(d.d) + '</span></div></div>';
     }).join('');
     var words = ['Шубы', 'Пуховики', 'Оверсайз', 'Kaspi Red', 'Доставка 0 ₸', 'Примерка дома', 'Новинки каждый день'];
-    var one = '<span>' + words.map(function (w) { return esc(w) + MF.ears(); }).join('') + '</span>';
+    var one = '<span>' + words.map(function (w) { return esc(w) + '<i>◆</i>'; }).join('') + '</span>';
     $('#ticker').innerHTML = one + one;
   }
 
@@ -125,7 +125,7 @@
     $('#catSub').textContent = q ? 'Поиск: «' + q + '»' : (c ? c.name : 'Вся коллекция — выберите категорию');
     $('#count').textContent = plural(list.length, 'товар', 'товара', 'товаров');
     $('#grid').innerHTML = list.length ? list.map(cardHTML).join('') :
-      '<div class="empty">' + MF.ears() + '<br>Ничего не нашли. Попробуйте другую категорию или напишите нам — подберём!</div>';
+      '<div class="empty">Ничего не нашли. Попробуйте другую категорию или напишите нам — подберём!</div>';
     bindHoverVideo();
   }
   $('#sort').addEventListener('change', function (e) { sort = e.target.value; renderGrid(); });
@@ -145,7 +145,7 @@
 
   /* ---------- поиск ---------- */
   $('#searchBtn').addEventListener('click', function () {
-    var s = $('#search'); s.hidden = !s.hidden;
+    var s = $('#search'); s.hidden = !s.hidden; hdrState();
     if (!s.hidden) { $('#q').focus(); }
   });
   $('#searchX').addEventListener('click', function () { $('#search').hidden = true; q = ''; $('#q').value = ''; renderGrid(); });
@@ -165,7 +165,7 @@
       var p = MF.pricing(it, D.promos);
       return '<button class="reel" data-open="' + esc(it.id) + '">' +
         '<video muted loop playsinline preload="none" poster="' + esc(MF.src((it.photos || [])[0])) + '" data-src="' + esc(MF.src(it.videos[0])) + '"></video>' +
-        MF.ears('reel-ears') +
+        '<span class="reel-play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>' +
         '<div class="reel-cap"><b>' + esc(it.name) + '</b><span>' + money(p.price) + '</span></div></button>';
     }).join('');
     // видео играют, только когда видны на экране
@@ -320,7 +320,7 @@
     $('#cartTitle').textContent = 'Корзина'; $('#cartBack').hidden = true;
     var lines = cartLines();
     if (!lines.length) {
-      $('#cartBody').innerHTML = '<div class="cart-empty">' + MF.ears() + '<b>Корзина пока пуста</b>Загляните в каталог — там много красивого</div>';
+      $('#cartBody').innerHTML = '<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg><b>Корзина пока пуста</b>Загляните в каталог — там много красивого</div>';
       $('#cartFoot').innerHTML = '<button class="btn btn-dark" data-go-catalog>Перейти в каталог</button>';
       return;
     }
@@ -459,23 +459,33 @@
       '<a class="btn ' + (num ? 'btn-ghost' : 'btn-pink') + '" target="_blank" rel="noopener" href="' + esc(MF.wa(S().whatsapp, text)) + '">' + (num ? 'Написать нам в WhatsApp' : 'Отправить в WhatsApp') + '</a>' +
       '<button class="btn btn-dark" data-close-done>Продолжить покупки</button></div>';
     $('#cartFoot').innerHTML = '';
-    if (num) confetti();
   }
   $('#cartBody').addEventListener('click', function (e) { if (e.target.closest('[data-close-done]')) { closeModal('#cart'); syncCart(); } });
 
-  function confetti() {
-    var box = document.createElement('div'); box.className = 'confetti';
-    var cols = ['%23E8508A', '%23161214', '%23F7D3DF'];
-    for (var i = 0; i < 36; i++) {
-      var el = document.createElement('i'), c = cols[i % 3], s = 10 + Math.random() * 16;
-      el.style.left = Math.random() * 100 + '%'; el.style.width = s + 'px'; el.style.height = s * .9 + 'px';
-      el.style.animationDelay = Math.random() * .8 + 's'; el.style.animationDuration = 1.8 + Math.random() * 1.6 + 's';
-      el.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Ccircle cx='22' cy='22' r='20' fill='" + c + "'/%3E%3Ccircle cx='78' cy='22' r='20' fill='" + c + "'/%3E%3Ccircle cx='50' cy='56' r='33' fill='" + c + "'/%3E%3C/svg%3E\")";
-      box.appendChild(el);
-    }
-    document.body.appendChild(box); setTimeout(function () { box.remove(); }, 4000);
-  }
-
   /* ---------- шапка ---------- */
-  window.addEventListener('scroll', function () { $('#hdr').classList.toggle('scrolled', scrollY > 10); }, { passive: true });
+  function hdrState() {
+    var h = $('#hero'); if (!h) return;
+    $('#hdr').classList.toggle('over', $('#search').hidden && h.getBoundingClientRect().bottom > $('#hdr').offsetHeight + 10);
+  }
+  window.addEventListener('scroll', hdrState, { passive: true });
+  window.addEventListener('resize', hdrState);
+  hdrState();
+
+  /* ---------- главный экран: смена фото ---------- */
+  var HERO_ITEMS = ['fur-cloud-grey', 'puff-ice', 'sw-graphite'];
+  var hi = 0, heroT;
+  function heroGo(n) {
+    var figs = $$('#heroPics figure'), dots = $$('#heroDots button');
+    hi = (n + figs.length) % figs.length;
+    figs.forEach(function (f, i) { f.classList.toggle('on', i === hi); });
+    dots.forEach(function (d, i) { d.classList.remove('on'); if (i === hi) { void d.offsetWidth; d.classList.add('on'); } });
+    clearTimeout(heroT); heroT = setTimeout(function () { heroGo(hi + 1); }, 5000);
+  }
+  if (!matchMedia('(min-width: 900px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) heroT = setTimeout(function () { heroGo(1); }, 5000);
+  $('#heroDots').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) heroGo($$('#heroDots button').indexOf(b)); });
+  $$('#heroPics figcaption').forEach(function (c, i) { c.addEventListener('click', function () { if (D) openItem(HERO_ITEMS[i]); }); });
+  /* свайп по главному фото */
+  var tx = null;
+  $('#hero').addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  $('#hero').addEventListener('touchend', function (e) { if (tx == null) return; var d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50) heroGo(hi + (d < 0 ? 1 : -1)); tx = null; }, { passive: true });
 })();

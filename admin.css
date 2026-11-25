@@ -1,5 +1,5 @@
 /* Mariya Felk — админка */
-:root { --pink: #E8508A; --pink-d: #C93A72; --pink-2: #F7D3DF; --pink-3: #FDEFF4; --ink: #161214; --muted: #776E72; --line: #ECE3E7; --bg: #F8F4F6; --ok: #12B76A; --err: #D92D20; --sans: 'Manrope', system-ui, sans-serif; --serif: 'Playfair Display', Georgia, serif; }
+:root { --pink: #6E5242; --pink-d: #533C30; --pink-2: #D9D3CC; --pink-3: #EFE8E1; --ink: #161214; --muted: #776E72; --line: #ECE3E7; --bg: #F5F2EE; --ok: #12B76A; --err: #D92D20; --sans: 'Manrope', system-ui, sans-serif; --serif: 'Playfair Display', Georgia, serif; }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 [hidden] { display: none !important; }
 body { margin: 0; font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
