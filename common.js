@@ -5,6 +5,7 @@
   /* Сервер (Cloudflare Worker): каталог, фото, видео и заказы */
   var API = 'https://mariya-felk-admin.sentora-admin-worker.workers.dev';
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]api=local/.test(location.search)) API = 'http://127.0.0.1:8787';
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /[?&]api=file/.test(location.search)) API = 'http://127.0.0.1:9';
 
   /* Готовые сетки размеров */
   var SIZE_PRESETS = {
