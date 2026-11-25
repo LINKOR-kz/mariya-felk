@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Админка — Mariya Felk</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#161214">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Ccircle cx='22' cy='22' r='20' fill='%23111'/%3E%3Ccircle cx='78' cy='22' r='20' fill='%23111'/%3E%3Ccircle cx='50' cy='56' r='33' fill='%23E8508A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css?v=1">
+</head>
+<body>
+
+<!-- Вход -->
+<div class="login" id="login" hidden>
+  <form class="login-box" id="loginForm">
+    <div id="loginLogo"></div>
+    <h1>Админ-панель</h1>
+    <p>Товары, фото, видео и заказы вашего сайта</p>
+    <input class="inp" id="pwd" type="password" placeholder="Пароль" autocomplete="current-password" required>
+    <button class="btn btn-pink" type="submit">Войти</button>
+    <div class="err" id="loginErr"></div>
+    <a href="./" class="link">← На сайт</a>
+  </form>
+</div>
+
+<!-- Панель -->
+<div class="app" id="app" hidden>
+  <header class="top">
+    <div id="topLogo"></div>
+    <nav class="tabs" id="tabs">
+      <button data-tab="orders" class="on">Заказы <span class="pill" id="newCount" hidden></span></button>
+      <button data-tab="items">Товары</button>
+      <button data-tab="cats">Категории</button>
+      <button data-tab="promos">Баннеры</button>
+      <button data-tab="settings">Магазин</button>
+    </nav>
+    <div class="top-act">
+      <a href="./" target="_blank" class="ghost-btn">Сайт ↗</a>
+      <button class="ghost-btn" id="logout">Выйти</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Заказы -->
+    <section class="pane" data-pane="orders">
+      <div class="pane-h">
+        <div><h2>Заказы</h2><p class="sub" id="ordersSub"></p></div>
+        <button class="btn btn-light" id="ordersReload">Обновить</button>
+      </div>
+      <div class="chips" id="orderFilter"></div>
+      <div class="orders" id="orders"></div>
+    </section>
+
+    <!-- Товары -->
+    <section class="pane" data-pane="items" hidden>
+      <div class="pane-h">
+        <div><h2>Товары</h2><p class="sub" id="itemsSub"></p></div>
+        <button class="btn btn-pink" id="addItem">+ Добавить товар</button>
+      </div>
+      <input class="inp search" id="itemQ" type="search" placeholder="Поиск по названию">
+      <div class="chips" id="itemCats"></div>
+      <div class="items" id="itemRows"></div>
+    </section>
+
+    <!-- Категории -->
+    <section class="pane" data-pane="cats" hidden>
+      <div class="pane-h">
+        <div><h2>Категории</h2><p class="sub">Разделы каталога на сайте. Пустые категории покупатели не видят.</p></div>
+        <button class="btn btn-pink" id="addCat">+ Категория</button>
+      </div>
+      <div class="list" id="catRows"></div>
+    </section>
+
+    <!-- Баннеры и акции -->
+    <section class="pane" data-pane="promos" hidden>
+      <div class="pane-h">
+        <div><h2>Баннеры и акции</h2><p class="sub">Показываются над каталогом. Можно дать скидку в % на всё, категорию или выбранные товары.</p></div>
+        <button class="btn btn-pink" id="addPromo">+ Баннер</button>
+      </div>
+      <div class="list" id="promoRows"></div>
+    </section>
+
+    <!-- Настройки -->
+    <section class="pane" data-pane="settings" hidden>
+      <div class="pane-h"><div><h2>Магазин</h2><p class="sub">Контакты и тексты на сайте</p></div></div>
+      <form class="card form" id="setForm"></form>
+    </section>
+  </main>
+</div>
+
+<!-- Окно редактирования -->
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-bg" data-sheet-close></div>
+  <div class="sheet-box">
+    <div class="sheet-h">
+      <button class="ghost-btn" data-sheet-close>Отмена</button>
+      <b id="sheetTitle"></b>
+      <button class="btn btn-pink sm" id="sheetSave">Сохранить</button>
+    </div>
+    <div class="sheet-body">
+      <form class="form" id="sheetForm" onsubmit="return false"></form>
+    </div>
+  </div>
+</div>
+
+<div class="busy" id="busy" hidden><div class="busy-box"><div class="spin"></div><span id="busyText">Сохраняем…</span><div class="bar" hidden><i id="busyBar"></i></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="common.js?v=1"></script>
+<script src="admin.js?v=1"></script>
+</body>
+</html>

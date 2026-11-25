@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mariya Felk — женская одежда в Караганде</title>
+<meta name="description" content="Mariya Felk — женский магазин одежды, обуви и аксессуаров в Караганде, ТД «Акжолтай». Шубы, пуховики, свитшоты. Доставка, Kaspi Red, рассрочка.">
+<meta name="theme-color" content="#F7D3DF">
+<meta property="og:title" content="Mariya Felk — женская одежда в Караганде">
+<meta property="og:description" content="Шубы, пуховики, оверсайз. Бесплатная доставка по городу, Kaspi Red и рассрочка.">
+<meta property="og:image" content="media/p/coat-grey2.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Ccircle cx='22' cy='22' r='20' fill='%23111'/%3E%3Ccircle cx='78' cy='22' r='20' fill='%23111'/%3E%3Ccircle cx='50' cy='56' r='33' fill='%23E8508A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="notice" id="notice">Бесплатная доставка по Караганде и Михайловке 🚚</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="hdr-logo" id="hdrLogo" aria-label="Mariya Felk — на главную"></a>
+    <nav class="hdr-nav">
+      <a href="#catalog">Каталог</a>
+      <a href="#videos">Видео</a>
+      <a href="#about">О нас</a>
+      <a href="#delivery">Доставка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="hdr-act">
+      <button class="ibtn" id="searchBtn" aria-label="Поиск"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="ibtn cart-btn" id="cartBtn" aria-label="Корзина">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg>
+        <span class="cart-count" id="cartCount" hidden>0</span>
+      </button>
+    </div>
+  </div>
+  <div class="search" id="search" hidden>
+    <div class="wrap"><input id="q" type="search" placeholder="Найти: шуба, пуховик, свитшот…" autocomplete="off"><button class="search-x" id="searchX" aria-label="Закрыть поиск">✕</button></div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Главный экран -->
+  <section class="hero">
+    <div class="hero-dots" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div class="hero-txt">
+        <p class="kicker"><span class="dot"></span> Караганда · ТД «Акжолтай»</p>
+        <h1 id="heroTitle">Твой стиль<br><em>на каждый день</em></h1>
+        <p class="hero-lead" id="heroText"></p>
+        <div class="hero-btns">
+          <a href="#catalog" class="btn btn-dark">Смотреть каталог</a>
+          <a href="#" class="btn btn-ghost" id="heroWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" class="wa-ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.2-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Консультация</a>
+        </div>
+        <ul class="hero-facts">
+          <li><b>72K+</b><span>подписчиц</span></li>
+          <li><b>0 ₸</b><span>доставка по городу</span></li>
+          <li><b>Kaspi</b><span>Red и рассрочка</span></li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <div class="mhead">
+          <span class="mear l"></span><span class="mear r"></span>
+          <div class="mface"><img src="media/p/ig05.webp" alt="Мария в шубе «Облако»" fetchpriority="high"></div>
+        </div>
+        <div class="hero-tag t1"><span>Хит сезона</span><b>Шуба «Облако»</b></div>
+        <div class="hero-tag t2"><span class="ears-mini"></span>новинки каждый день</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Бегущая строка -->
+  <div class="ticker" aria-hidden="true"><div class="ticker-in" id="ticker"></div></div>
+
+  <!-- Каталог -->
+  <section class="sec" id="catalog">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Каталог</h2>
+        <p class="sec-sub" id="catSub">Выберите категорию</p>
+      </div>
+    </div>
+    <div class="cats-bar" id="catsBar"><div class="wrap"><div class="cats" id="cats"></div></div></div>
+    <div class="wrap">
+      <div class="promos" id="promos"></div>
+      <div class="sortbar">
+        <span id="count"></span>
+        <label class="sort"><span>Сортировка</span>
+          <select id="sort"><option value="">Сначала новые</option><option value="cheap">Сначала дешевле</option><option value="exp">Сначала дороже</option></select>
+        </label>
+      </div>
+      <div class="grid" id="grid"><div class="loading">Загружаем каталог…</div></div>
+    </div>
+  </section>
+
+  <!-- Видео -->
+  <section class="sec sec-dark" id="videos">
+    <div class="wrap">
+      <div class="sec-head light">
+        <h2>Смотрите <em>вживую</em></h2>
+        <p class="sec-sub">Мария примеряет вещи сама — так вы видите, как они сидят на самом деле. Нажмите на видео, чтобы открыть товар.</p>
+      </div>
+    </div>
+    <div class="reels" id="reels"></div>
+  </section>
+
+  <!-- О магазине -->
+  <section class="sec" id="about">
+    <div class="wrap about">
+      <div class="about-art">
+        <div class="mhead small">
+          <span class="mear l"></span><span class="mear r"></span>
+          <div class="mface"><img src="media/p/ig07.webp" alt="Магазин Mariya Felk" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="about-txt">
+        <p class="kicker"><span class="dot"></span> О магазине</p>
+        <h2>Привет, я <em>Мария</em></h2>
+        <div class="about-p" id="aboutText"></div>
+        <ul class="perks">
+          <li><span class="perk-ico">✓</span>Каждую вещь примеряем и показываем на видео</li>
+          <li><span class="perk-ico">✓</span>Примерочная в ТД «Акжолтай»</li>
+          <li><span class="perk-ico">✓</span>Доставка с примеркой — платите только за то, что подошло</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Доставка -->
+  <section class="sec sec-pink" id="delivery">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Доставка и <em>оплата</em></h2>
+        <p class="sec-sub">Оформите заказ на сайте — мы перезвоним, уточним размер и выставим счёт на ваш Kaspi.</p>
+      </div>
+      <div class="dl" id="deliveryList"></div>
+      <ol class="steps">
+        <li><b>1</b><span>Выберите вещи и размер, добавьте в корзину</span></li>
+        <li><b>2</b><span>Заполните короткую анкету: имя, город, номер</span></li>
+        <li><b>3</b><span>Получите счёт в Kaspi и оплатите в приложении</span></li>
+        <li><b>4</b><span>Заберите в магазине или ждите курьера</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="sec" id="contacts">
+    <div class="wrap">
+      <div class="contact">
+        <div class="contact-card">
+          <div class="contact-ears" aria-hidden="true"></div>
+          <h2>Ждём вас <em>в гости</em></h2>
+          <ul class="clist">
+            <li><span>Адрес</span><b id="cAddr"></b></li>
+            <li><span>Режим работы</span><b id="cHours"></b></li>
+            <li><span>WhatsApp</span><a id="cWa" target="_blank" rel="noopener"></a></li>
+            <li><span>Instagram</span><a id="cIg" target="_blank" rel="noopener"></a></li>
+          </ul>
+          <div class="hero-btns">
+            <a class="btn btn-pink" id="cWaBtn" target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <a class="btn btn-ghost" id="cMap" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+          </div>
+          <p class="note">Директ в Instagram не читаем — пишите, пожалуйста, в WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div id="ftrLogo"></div>
+    <p>Одежда · Обувь · Аксессуары · Караганда</p>
+    <p class="ftr-small">© <span id="year"></span> Mariya Felk</p>
+  </div>
+</footer>
+
+<!-- Плавающая корзина на телефоне -->
+<button class="cartbar" id="cartBar" hidden>
+  <span class="cartbar-n" id="cartBarN"></span>
+  <span class="cartbar-t">Корзина</span>
+  <b id="cartBarSum"></b>
+</button>
+
+<!-- Карточка товара -->
+<div class="modal" id="pm" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box pm" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <button class="modal-x" data-close aria-label="Закрыть">✕</button>
+    <div class="pm-media">
+      <div class="gal" id="pmGal"></div>
+      <div class="gal-dots" id="pmDots"></div>
+      <button class="gal-nav prev" id="pmPrev" aria-label="Назад">‹</button>
+      <button class="gal-nav next" id="pmNext" aria-label="Вперёд">›</button>
+    </div>
+    <div class="pm-info">
+      <div class="pm-tags" id="pmTags"></div>
+      <h3 id="pmName"></h3>
+      <p class="pm-color" id="pmColor"></p>
+      <div class="pm-price" id="pmPrice"></div>
+      <div class="pm-sizes-h"><b>Размер</b><span id="pmSizeHint"></span></div>
+      <div class="sizes" id="pmSizes"></div>
+      <div class="pm-buy">
+        <div class="qty"><button id="pmMinus" aria-label="Меньше">−</button><span id="pmQty">1</span><button id="pmPlus" aria-label="Больше">+</button></div>
+        <button class="btn btn-dark btn-wide" id="pmAdd">В корзину</button>
+      </div>
+      <a class="pm-ask" id="pmAsk" target="_blank" rel="noopener">Задать вопрос в WhatsApp</a>
+      <div class="pm-desc" id="pmDesc"></div>
+      <div class="pm-mini">
+        <div><b>🚚 0 ₸</b><span>по Караганде и Михайловке</span></div>
+        <div><b>💳 Kaspi</b><span>счёт на ваш номер, Red, рассрочка</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Корзина и оформление -->
+<div class="drawer" id="cart" hidden>
+  <div class="modal-bg" data-close></div>
+  <aside class="drawer-box" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-h">
+      <button class="back" id="cartBack" hidden aria-label="Назад">‹</button>
+      <h3 id="cartTitle">Корзина</h3>
+      <button class="modal-x static" data-close aria-label="Закрыть">✕</button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot"></div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="common.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
